@@ -6,5 +6,5 @@ target 'MVVMDemo' do
   use_frameworks!
 
   # Pods for MVVMDemo
-
+  pod 'Alamofire', '~> 5.0.0.beta.1'
 end
