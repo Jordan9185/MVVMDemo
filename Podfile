@@ -6,5 +6,14 @@ target 'MVVMDemo' do
   use_frameworks!
 
   # Pods for MVVMDemo
+
+  # NetWork
   pod 'Alamofire', '~> 5.0.0.beta.1'
+
+  # Rx
+  pod 'RxSwift',    '~> 4.0'
+  pod 'RxCocoa',    '~> 4.0'
+
+  # Dependency Injection
+  pod 'Swinject'
 end

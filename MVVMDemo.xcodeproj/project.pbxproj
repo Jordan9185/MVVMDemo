@@ -12,6 +12,8 @@
 		984ECA9121FEE73000A0F045 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 984ECA8F21FEE73000A0F045 /* Main.storyboard */; };
 		984ECA9321FEE73100A0F045 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 984ECA9221FEE73100A0F045 /* Assets.xcassets */; };
 		984ECA9621FEE73100A0F045 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 984ECA9421FEE73100A0F045 /* LaunchScreen.storyboard */; };
+		984ECAA021FEEB5700A0F045 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984ECA9F21FEEB5700A0F045 /* ApiService.swift */; };
+		984ECAA321FEEC0800A0F045 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984ECAA221FEEC0800A0F045 /* Post.swift */; };
 		EDF4144A2D4C9BAF4B5E2B62 /* Pods_MVVMDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 755FF9E8A38C148BFB458ABD /* Pods_MVVMDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +28,8 @@
 		984ECA9221FEE73100A0F045 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		984ECA9521FEE73100A0F045 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		984ECA9721FEE73100A0F045 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		984ECA9F21FEEB5700A0F045 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
+		984ECAA221FEEC0800A0F045 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,7 +50,6 @@
 				04858DB18CDCFC86C0134074 /* Pods-MVVMDemo.debug.xcconfig */,
 				347E2314043BA04AAE3EC649 /* Pods-MVVMDemo.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -71,6 +74,7 @@
 		984ECA8A21FEE73000A0F045 /* MVVMDemo */ = {
 			isa = PBXGroup;
 			children = (
+				984ECA9E21FEEB3100A0F045 /* src */,
 				984ECA8B21FEE73000A0F045 /* AppDelegate.swift */,
 				984ECA8D21FEE73000A0F045 /* ViewController.swift */,
 				984ECA8F21FEE73000A0F045 /* Main.storyboard */,
@@ -79,6 +83,31 @@
 				984ECA9721FEE73100A0F045 /* Info.plist */,
 			);
 			path = MVVMDemo;
+			sourceTree = "<group>";
+		};
+		984ECA9D21FEEB2300A0F045 /* service */ = {
+			isa = PBXGroup;
+			children = (
+				984ECA9F21FEEB5700A0F045 /* ApiService.swift */,
+			);
+			path = service;
+			sourceTree = "<group>";
+		};
+		984ECA9E21FEEB3100A0F045 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				984ECAA121FEEBDB00A0F045 /* model */,
+				984ECA9D21FEEB2300A0F045 /* service */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		984ECAA121FEEBDB00A0F045 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				984ECAA221FEEC0800A0F045 /* Post.swift */,
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 		9B74C18A46C21C903CA119FD /* Frameworks */ = {
@@ -168,12 +197,20 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-MVVMDemo/Pods-MVVMDemo-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swinject.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -211,6 +248,8 @@
 			files = (
 				984ECA8E21FEE73000A0F045 /* ViewController.swift in Sources */,
 				984ECA8C21FEE73000A0F045 /* AppDelegate.swift in Sources */,
+				984ECAA021FEEB5700A0F045 /* ApiService.swift in Sources */,
+				984ECAA321FEEC0800A0F045 /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

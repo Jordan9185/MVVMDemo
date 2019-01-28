@@ -10,9 +10,17 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    let apiService = AppDelegate.container.resolve(ApiService.self)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        apiService?.getAllPosts().subscribe(onSuccess: { (posts) in
+            print(posts)
+        }, onError: { (error) in
+            print(error)
+        }).dispose()
+        
     }
 
 
