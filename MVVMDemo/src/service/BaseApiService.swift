@@ -1,5 +1,5 @@
 //
-//  ApiService.swift
+//  BaseApiService.swift
 //  MVVMDemo
 //
 //  Created by Jordan Lin on 2019/1/28.
@@ -10,10 +10,10 @@ import Foundation
 import RxSwift
 import Alamofire
 
-class ApiService {
+class BaseApiService {
     private let dispostBag = DisposeBag()
     private static let hostname = "https://jsonplaceholder.typicode.com/"
-    private enum Path {
+    enum Path {
         case posts
         
         var path: String {
@@ -26,7 +26,7 @@ class ApiService {
         var url: URL? {
             switch self {
             case .posts:
-                return URL(string: ApiService.hostname + Path.posts.path)
+                return URL(string: BaseApiService.hostname + Path.posts.path)
             }
         }
     }
@@ -35,23 +35,27 @@ class ApiService {
         case urlError
     }
     
-    func getAllPosts() -> Single<[Post]> {
-        return Single<[Post]>.create { observer in
+    func sendRequest<T: Codable>(url: URL?, type: T.Type) -> Single<T> {
+        return Single<T>.create { observer in
             
             guard
-                let postsUrl = Path.posts.url,
-                UIApplication.shared.canOpenURL(postsUrl)
+                let url = url,
+                UIApplication.shared.canOpenURL(url)
                 else {
                     observer(.error(ApiError.urlError))
-                    
                     return Disposables.create {}
             }
             
+            let req = URLRequest(url: url)
             
-            let req = URLRequest(url: postsUrl)
-
-            let task = AF.request(req).responseDecodable { (res: DataResponse<[Post]>) in
-                observer(.success(res.result.value ?? []))
+            let task = AF.request(req).responseDecodable { (res: DataResponse<T>) in
+                switch res.result {
+                case .failure(let error):
+                    observer(.error(error))
+                case .success(let value):
+                    observer(.success(value))
+                }
+                
             }
             
             task.resume()

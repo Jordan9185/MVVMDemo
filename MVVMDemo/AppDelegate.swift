@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     static let container: Container = {
         let ctner = Container()
-        ctner.register(ApiService.self) { _ in ApiService() }
+        ctner.register(PostApiService.self) { _ in PostApiService() }
 
         return ctner
     }()
