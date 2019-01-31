@@ -18,11 +18,12 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel.posts.asObservable().bind { (posts) in
-            print(posts)
-        }.disposed(by: bag)
-        
-        viewModel.getAllPost()
+//        viewModel.posts.asObservable().bind { (posts) in
+//            print(posts)
+//        }.disposed(by: bag)
+//        
+//        viewModel.getAllPost()
+//        
     }
 }
 

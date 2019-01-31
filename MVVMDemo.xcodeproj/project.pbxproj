@@ -17,6 +17,8 @@
 		98B6B7362200101100CDB219 /* PostApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B6B7352200101100CDB219 /* PostApiService.swift */; };
 		98B6B73C2200406900CDB219 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B6B73B2200406900CDB219 /* MainViewModel.swift */; };
 		98B6B73E220040C700CDB219 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B6B73D220040C700CDB219 /* BaseViewModel.swift */; };
+		98B6B74022014EA800CDB219 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B6B73F22014EA800CDB219 /* User.swift */; };
+		98B6B74222014F2900CDB219 /* UserApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B6B74122014F2900CDB219 /* UserApiService.swift */; };
 		EDF4144A2D4C9BAF4B5E2B62 /* Pods_MVVMDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 755FF9E8A38C148BFB458ABD /* Pods_MVVMDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +38,8 @@
 		98B6B7352200101100CDB219 /* PostApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostApiService.swift; sourceTree = "<group>"; };
 		98B6B73B2200406900CDB219 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		98B6B73D220040C700CDB219 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		98B6B73F22014EA800CDB219 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		98B6B74122014F2900CDB219 /* UserApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserApiService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +99,7 @@
 			children = (
 				984ECA9F21FEEB5700A0F045 /* BaseApiService.swift */,
 				98B6B7352200101100CDB219 /* PostApiService.swift */,
+				98B6B74122014F2900CDB219 /* UserApiService.swift */,
 			);
 			path = service;
 			sourceTree = "<group>";
@@ -114,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				984ECAA221FEEC0800A0F045 /* Post.swift */,
+				98B6B73F22014EA800CDB219 /* User.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -273,8 +279,10 @@
 			files = (
 				98B6B73C2200406900CDB219 /* MainViewModel.swift in Sources */,
 				984ECA8E21FEE73000A0F045 /* MainViewController.swift in Sources */,
+				98B6B74222014F2900CDB219 /* UserApiService.swift in Sources */,
 				984ECA8C21FEE73000A0F045 /* AppDelegate.swift in Sources */,
 				98B6B7362200101100CDB219 /* PostApiService.swift in Sources */,
+				98B6B74022014EA800CDB219 /* User.swift in Sources */,
 				984ECAA021FEEB5700A0F045 /* BaseApiService.swift in Sources */,
 				98B6B73E220040C700CDB219 /* BaseViewModel.swift in Sources */,
 				984ECAA321FEEC0800A0F045 /* Post.swift in Sources */,

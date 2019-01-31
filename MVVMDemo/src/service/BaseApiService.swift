@@ -12,24 +12,8 @@ import Alamofire
 
 class BaseApiService {
     private let dispostBag = DisposeBag()
-    private static let hostname = "https://jsonplaceholder.typicode.com/"
-    enum Path {
-        case posts
-        
-        var path: String {
-            switch self {
-            case .posts:
-                return "posts"
-            }
-        }
-        
-        var url: URL? {
-            switch self {
-            case .posts:
-                return URL(string: BaseApiService.hostname + Path.posts.path)
-            }
-        }
-    }
+    
+    static let hostname = "https://jsonplaceholder.typicode.com/"
     
     private enum ApiError: Error {
         case urlError

@@ -13,7 +13,11 @@ import RxCocoa
 class MainViewModel: BaseViewModel {
     lazy var postApiService = getApiService(type: PostApiService.self)
     
+    lazy var userApiService = getApiService(type: UserApiService.self)
+    
     let posts = BehaviorRelay<[Post]>(value: [])
+    
+    let users = BehaviorRelay<[User]>(value: [])
     
     func getAllPost() {
         postApiService
@@ -24,5 +28,16 @@ class MainViewModel: BaseViewModel {
             }) { (error) in
                 print(error)
         }.disposed(by: bag)
+    }
+    
+    func getAllUser() {
+        userApiService
+            .getAllUser()
+            .subscribe(
+                onSuccess: { (users) in
+                    self.users.accept(users)
+            }) { (error) in
+                print(error)
+            }.disposed(by: bag)
     }
 }
