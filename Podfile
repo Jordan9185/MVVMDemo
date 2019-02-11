@@ -16,4 +16,7 @@ target 'MVVMDemo' do
 
   # Dependency Injection
   pod 'Swinject'
+  
+  # Auto Layout
+  pod 'SnapKit', '~> 4.0.0'
 end
