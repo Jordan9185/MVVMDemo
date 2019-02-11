@@ -16,6 +16,7 @@ class PostTableCell: UITableViewCell {
         label.numberOfLines = 2
         label.text = ""
         label.textColor = .black
+        label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         return label
     }()
     
@@ -39,8 +40,15 @@ class PostTableCell: UITableViewCell {
         self.contentView.addSubview(bodyLabel)
         
         titleLabel.snp.makeConstraints { (m) in
-            m.centerX.centerY.equalToSuperview()
-            m.size.equalTo(CGSize(width: 300, height: 50))
+            m.top.equalTo(5)
+            m.leading.equalTo(15)
+            m.trailing.equalTo(-15)
+        }
+        
+        bodyLabel.snp.makeConstraints { (m) in
+            m.top.equalTo(titleLabel.snp.bottom).offset(8)
+            m.leading.trailing.equalTo(titleLabel)
+            m.bottom.equalTo(-5)
         }
     }
     
