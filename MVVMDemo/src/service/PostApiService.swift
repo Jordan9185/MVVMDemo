@@ -12,11 +12,14 @@ import RxSwift
 class PostApiService: BaseApiService {
     enum Path {
         case posts
+        case post(String)
         
         var path: String {
             switch self {
             case .posts:
                 return "posts"
+            case .post(let id):
+                return "posts/\(id)"
             }
         }
         
@@ -24,6 +27,8 @@ class PostApiService: BaseApiService {
             switch self {
             case .posts:
                 return URL(string: PostApiService.hostname + Path.posts.path)
+            case .post(let id):
+                return URL(string: PostApiService.hostname + Path.post(id).path)
             }
         }
     }
@@ -32,11 +37,11 @@ class PostApiService: BaseApiService {
         return sendRequest(url: Path.posts.url, type: [Post].self)
     }
     
-    func getPost(by postId: Int) {
-        
+    func getPost(by postId: String) -> Single<Post> {
+        return sendRequest(url: Path.post(postId).url, type: Post.self)
     }
     
-    func getPosts(by userId: Int) {
+    func getPosts(by userId: String) {
         
     }
 }

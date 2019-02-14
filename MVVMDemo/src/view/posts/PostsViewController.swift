@@ -1,5 +1,5 @@
 //
-//  MainViewController.swift
+//  PostViewController.swift
 //  MVVMDemo
 //
 //  Created by Jordan Lin on 2019/1/28.
@@ -9,11 +9,11 @@
 import UIKit
 import RxSwift
 
-class MainViewController: UITableViewController {
+class PostViewController: UITableViewController {
     
     // MARK: Properties
-    private lazy var viewModel: MainViewModel = {
-        let vm = MainViewModel()
+    private lazy var viewModel: PostsViewModel = {
+        let vm = PostsViewModel()
         vm.posts.asObservable().bind { (posts) in
             self.posts = posts
             }.disposed(by: bag)
@@ -31,6 +31,7 @@ class MainViewController: UITableViewController {
     // MARK: Controller Life Cycle
     init() {
         super.init(nibName: nil, bundle: nil)
+        self.title = "Posts"
         self.view.backgroundColor = .white
         registCells()
     }
@@ -58,5 +59,11 @@ class MainViewController: UITableViewController {
         let cell = self.tableView.dequeueCell(PostTableCell.self, indexPath: indexPath)
         cell.bind(post: posts[indexPath.row])
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.navigationController?.pushViewController(
+            SinglePostController(post: posts[indexPath.row]),
+            animated: true)
     }
 }

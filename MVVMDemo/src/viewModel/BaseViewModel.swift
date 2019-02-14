@@ -13,7 +13,7 @@ import RxSwift
 class BaseViewModel {
     let bag = DisposeBag()
     
-    func getApiService<T>(type: T.Type) -> T {
+    func getApiService<T: BaseApiService>(type: T.Type) -> T {
         guard let service = AppDelegate.container.resolve(T.self) else {
             fatalError("Container not regist \(type)")
         }

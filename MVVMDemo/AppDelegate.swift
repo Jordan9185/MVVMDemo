@@ -24,7 +24,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = MainViewController()
+        
+        let postNavigation = UINavigationController(rootViewController: PostViewController())
+        postNavigation.tabBarItem = UITabBarItem(
+            title: "Posts",
+            image: nil,
+            selectedImage: nil)
+        
+        let tabController = UITabBarController()
+        tabController.viewControllers = [postNavigation]
+
+        window?.rootViewController = tabController
         window?.makeKeyAndVisible()
         
         return true

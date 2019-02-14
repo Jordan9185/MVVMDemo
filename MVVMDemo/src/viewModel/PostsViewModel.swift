@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class MainViewModel: BaseViewModel {
+class PostsViewModel: BaseViewModel {
     lazy var postApiService = getApiService(type: PostApiService.self)
     
     lazy var userApiService = getApiService(type: UserApiService.self)
